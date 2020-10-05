@@ -86,10 +86,6 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         AddNewNote ->
-            let
-                addNoteTimeString =
-                    timeToDateString model.currentTime model.zone
-            in
             ( { model
                 | notes =
                     List.append model.notes

@@ -286,7 +286,7 @@ notesColumn model =
         createNoteRow note =
             box [ onClick (ChangeActiveNoteId note.id) ]
                 [ if note.title == "" then
-                    div [ class "has-text-grey" ] [ text "No title" ]
+                    div [ class "has-text-grey" ] [ text "Untitled" ]
 
                   else
                     div [] [ text note.title ]
@@ -316,14 +316,14 @@ editColumn note =
         [ controlText controlInputModifiers
             []
             [ value note.title
-            , placeholder "Input"
+            , placeholder "Untitled"
             , onInput (EditNoteTitle note.id)
             ]
             []
         , controlTextArea controlTextAreaModifiers
             []
             [ value note.body
-            , placeholder "Input body"
+            , placeholder "Feel free to write..."
             , style "height" "93vh"
             , style "max-height" "93vh"
             , onInput (EditNoteBody note.id)

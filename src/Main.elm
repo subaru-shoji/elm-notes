@@ -55,9 +55,9 @@ type alias UserName =
 init : () -> ( Model, Cmd Msg )
 init _ =
     ( { notes =
-            [ Note 1 "銀河鉄道の夜" (Time.millisToPosix 1560000000) "なんたらかんたら"
-            , Note 2 "銀河鉄道の夜2" (Time.millisToPosix 1560000000) "やばい"
-            , Note 3 "銀河鉄道の夜3" (Time.millisToPosix 1560000000) "すごい"
+            [ Note 1 "銀河鉄道の夜" (Time.millisToPosix 1601871282726) "なんたらかんたら"
+            , Note 2 "銀河鉄道の夜2" (Time.millisToPosix 1601871282726) "やばい"
+            , Note 3 "銀河鉄道の夜3" (Time.millisToPosix 1601871282726) "すごい"
             ]
       , userName = "John Doe"
       , activeNoteId = 1

@@ -1,0 +1,15 @@
+{
+  "name": "elm-notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "elm": "elm",
+    "start": "elm-live src/Main.elm"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "elm-live": "^4.0.2"
+  }
+}

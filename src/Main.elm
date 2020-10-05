@@ -13,6 +13,7 @@ import Html.Attributes exposing (class, href, placeholder, rel, style, value)
 import Html.Events exposing (onClick, onInput)
 import Task
 import Time
+import TimeUtil
 
 
 main : Program () Model Msg
@@ -54,9 +55,9 @@ type alias UserName =
 init : () -> ( Model, Cmd Msg )
 init _ =
     ( { notes =
-            [ Note 1 "銀河鉄道の夜" (Time.millisToPosix 1601478000) "なんたらかんたら"
-            , Note 2 "銀河鉄道の夜2" (Time.millisToPosix 1601478000) "やばい"
-            , Note 3 "銀河鉄道の夜3" (Time.millisToPosix 1601478000) "すごい"
+            [ Note 1 "銀河鉄道の夜" (Time.millisToPosix 1560000000) "なんたらかんたら"
+            , Note 2 "銀河鉄道の夜2" (Time.millisToPosix 1560000000) "やばい"
+            , Note 3 "銀河鉄道の夜3" (Time.millisToPosix 1560000000) "すごい"
             ]
       , userName = "John Doe"
       , activeNoteId = 1
@@ -140,61 +141,6 @@ update msg model =
             ( { model | zone = newZone }
             , Cmd.none
             )
-
-
-timeToDateString : Time.Posix -> Time.Zone -> String
-timeToDateString time zone =
-    let
-        year =
-            String.fromInt (Time.toYear zone time)
-
-        month =
-            Time.toMonth zone time |> toMonthString
-
-        day =
-            String.fromInt (Time.toDay zone time) |> String.pad 2 '0'
-    in
-    year ++ "/" ++ month ++ "/" ++ day
-
-
-toMonthString : Time.Month -> String
-toMonthString month =
-    case month of
-        Time.Jan ->
-            "01"
-
-        Time.Feb ->
-            "02"
-
-        Time.Mar ->
-            "03"
-
-        Time.Apr ->
-            "04"
-
-        Time.May ->
-            "05"
-
-        Time.Jun ->
-            "06"
-
-        Time.Jul ->
-            "07"
-
-        Time.Aug ->
-            "08"
-
-        Time.Sep ->
-            "09"
-
-        Time.Oct ->
-            "10"
-
-        Time.Nov ->
-            "11"
-
-        Time.Dec ->
-            "12"
 
 
 view : Model -> Html Msg
@@ -290,7 +236,7 @@ notesColumn model =
 
                   else
                     div [] [ text note.title ]
-                , div [] [ text (timeToDateString note.editTime model.zone) ]
+                , div [] [ text (TimeUtil.timeToDateString note.editTime model.zone) ]
                 , div [] [ text note.body ]
                 ]
     in

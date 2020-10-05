@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "elm": "elm",
-    "start": "elm-live src/Main.elm",
+    "start": "elm-live src/Main.elm -- --debug",
     "build": "elm make src/Main.elm"
   },
   "author": "",
